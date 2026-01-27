@@ -1,4 +1,4 @@
-public class BinarySearchTree<T extends Comparable<T>> {
+public class BinarySearchTree<T extends Comparable<T>> implements SortedCollection<T> {
     protected BinaryNode<T> root = null;
     private int size = 0;
 
