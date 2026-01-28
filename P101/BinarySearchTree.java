@@ -7,7 +7,6 @@ public class BinarySearchTree<T extends Comparable<T>> implements SortedCollecti
      * is null, this method does nothing. 
      */
     protected void insertHelper(BinaryNode<T> newNode, BinaryNode<T> subtree) {
-        // TODO: define and make use of this method in your BinarySearchTree class
         if(subtree == null){
             return;
         }
@@ -30,6 +29,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements SortedCollecti
             }
         }
     }
+    @Override
     public void insert(T data)throws NullPointerException{
         if(data == null){
             throw new NullPointerException("Cannot insert null data into the tree");
@@ -41,6 +41,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements SortedCollecti
         BinaryNode<T> newNode = new BinaryNode<>(data);
         insertHelper(newNode, root);
     }
+    @Override
     public boolean contains(Comparable<T> find){
         BinaryNode<T> currentNode = root;
         while(currentNode != null){
@@ -56,6 +57,8 @@ public class BinarySearchTree<T extends Comparable<T>> implements SortedCollecti
         }
         return false;
     }
+    
+    @Override
     public int size(){
         return sizeHelper(root);
     }
@@ -66,11 +69,11 @@ public class BinarySearchTree<T extends Comparable<T>> implements SortedCollecti
         }
         return 1 + sizeHelper(node.getLeft()) + sizeHelper(node.getRight());
     }
-
+    @Override
     public boolean isEmpty(){
         return root == null;
     }
-
+    @Override
     public void clear(){
         this.root = null;
     }
